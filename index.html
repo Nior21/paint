@@ -1,0 +1,61 @@
+<html lang="ru">
+    <head>
+        <title>Paint</title>
+        <style>
+        body {
+            background-color: black;
+        }
+        input {
+            width: 6rem;
+            height: 3rem;
+        }
+        
+        circle {
+            stroke: black;
+            stroke-linecap: round;
+            fill: black;
+        }
+            
+        svg {
+            display: "block";
+            fill: "gray";
+            stroke: "gray";
+        }
+        </style>
+        <script>
+            function testHandler() {
+                console.log("testHandle OK")
+                const svgNS = "http://www.w3.org/2000/svg";
+                const svg$ = document.createElementNS(svgNS, "svg");
+                svg$.setAttributeNS(svgNS, "width", "300px");
+                svg$.setAttributeNS(svgNS, "height", "150px);
+                document.body.appendChild(svg$);
+            }
+            testHandler();
+        </script>
+    </head>
+    <body>
+        <input type="button" onclick="" value="Create Image">
+        
+        
+        <script>
+            
+            const point = (x, y) => {
+               const point$ = document.createElementNS(svgNS, "circle");
+               point$.cx = x;
+               point$.cy = y;
+               point$.r = 5rem;
+               point$.width = 2rem;
+               svg$.appendChild(point$);
+           }
+           
+            const editHandler = () => {
+                let coordinate = `${event.x}:${event.y}`;
+                console.log(coordinate);
+                console.log("editHandler OK")
+                output$.textContent = coordinate;
+                point(event.x, event.y);
+            }
+        </script>
+    </body>
+</html>
