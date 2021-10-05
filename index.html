@@ -1,61 +1,34 @@
 <html lang="ru">
     <head>
         <title>Paint</title>
-        <style>
-        body {
-            background-color: black;
-        }
-        input {
-            width: 6rem;
-            height: 3rem;
-        }
-        
-        circle {
-            stroke: black;
-            stroke-linecap: round;
-            fill: black;
-        }
-            
-        svg {
-            display: "block";
-            fill: "gray";
-            stroke: "gray";
-        }
-        </style>
-        <script>
-            function testHandler() {
-                console.log("testHandle OK")
-                const svgNS = "http://www.w3.org/2000/svg";
-                const svg$ = document.createElementNS(svgNS, "svg");
-                svg$.setAttributeNS(svgNS, "width", "300px");
-                svg$.setAttributeNS(svgNS, "height", "150px);
-                document.body.appendChild(svg$);
-            }
-            testHandler();
-        </script>
     </head>
     <body>
-        <input type="button" onclick="" value="Create Image">
-        
-        
-        <script>
-            
-            const point = (x, y) => {
-               const point$ = document.createElementNS(svgNS, "circle");
-               point$.cx = x;
-               point$.cy = y;
-               point$.r = 5rem;
-               point$.width = 2rem;
-               svg$.appendChild(point$);
-           }
-           
-            const editHandler = () => {
-                let coordinate = `${event.x}:${event.y}`;
-                console.log(coordinate);
-                console.log("editHandler OK")
-                output$.textContent = coordinate;
-                point(event.x, event.y);
-            }
-        </script>
+        <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="278px" height="260px" viewBox="-128 0 278 260">
+<path id="k1" fill="none" stroke="#333" stroke-width="3" d="M138.097,5.173c-7.571,0.407-17.893,6.74-21.187,10.05l-13.446,13.445l-15.753-1.086c0.934-2.394,1.035-5.348-0.951-7.334 c-2.938-2.937-8.064-1.324-10.186,0.815l-5.433, 5.432l-28.928-1.901L34.2,32.879l47.398, 17.52L57.424,74.574H43.028l-9.371, 9.507 l27.163,6.654l6.655,27.163l9.506-9.372V93.995l24.176-24.174l17.52, 47.534l8.285-8.013l-1.902-28.928l5.434-5.433 c2.138-2.122,3.751-7.249, 0.813-10.186c-1.985-1.986-4.939-1.885-7.333-0.951l-1.087-15.754l13.445-13.446 c4.415-4.414,14.227-21.492, 8.149-27.57C142.952,5.547,140.626,5.038,138.097,5.173z">
+   <animate attributeName="stroke-dashoffset" begin="0s" repeatCount="1" values="200%;0" fill="freeze" dur="5s"/>
+</path>
+<!-- Для упрощения кода остальные пути не указаны, но они есть -->
+<g id="doA" style="cursor:pointer;">
+   <rect x="100" y="165" fill="#99f" width="50" height="23"/>
+   <text x="110" y="180" font-family="'Calibri'" font-size="11">START</text>
+</g>
+<script>
+   const masks2 = ['k1', 'k2', 'k3', 'k4', 'k5'];
+   window.onload=function(){
+      masks2.forEach((mask, index, el) => {
+         const id2 = `#${mask}`;
+         var path2 = document.querySelector(id2);
+         const length2 = path2.getTotalLength();
+         path2.style.strokeDasharray = length2;
+         path2.style.strokeDashoffset = length2;
+      })
+   }
+   document.getElementById("doA").addEventListener("click", evt => {
+      document.querySelectorAll("animate").forEach(element => {
+         element.beginElement();
+      });
+   });
+</script>
+</svg>
     </body>
 </html>
